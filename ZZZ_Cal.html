@@ -49,8 +49,9 @@
   .col2 { grid-column: 1 / -1; }
 
   .card { background: var(--surface); padding: 24px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+  .left-col .card { border-color: rgba(45, 127, 138, 0.55); }
   .card-fuchsia { border-color: var(--fuchsia-dim); }
-  .card-cyan { border-color: rgba(34,211,238,0.2); }
+  .card-cyan { border-color: var(--border); }
   .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .card-title { font-size: 15px; font-weight: 700; color: var(--z100); }
 
@@ -58,7 +59,7 @@
   .field-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 0 16px; }
   .field { margin-bottom: 16px; }
   label { display: block; font-size: 11px; color: var(--z400); font-weight: 500; margin-bottom: 6px; }
-  label.hi  { color: var(--yellow);  font-weight: 700; }
+  label.hi  { color: var(--z400);  font-weight: 500; }
   label.hif { color: #e879f9; font-weight: 700; }
   .input-wrap { position: relative; }
   input[type=text] {
@@ -66,8 +67,8 @@
     border-radius: 8px; padding: 10px 12px; color: var(--z100);
     font-family: monospace; font-size: 15px; outline: none; transition: border-color 0.2s;
   }
-  input[type=text]:focus { border-color: var(--yellow); }
-  input[type=text].hi  { background: var(--yellow-bg);  border-color: var(--yellow-border); }
+  input[type=text]:focus { border-color: var(--z500); }
+  input[type=text].hi  { background: var(--z900);  border-color: var(--border); }
   input[type=text].hif { background: var(--fuchsia-bg); border-color: var(--fuchsia-dim); }
   input[type=text].has-unit { padding-right: 32px; }
   .unit { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--z500); font-family: monospace; font-size: 13px; pointer-events: none; }
@@ -89,7 +90,7 @@
   .result-header-title { font-weight: 900; font-size: 18px; color: #fff; letter-spacing: 3px; text-transform: uppercase; }
   .result-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 
-  .total-box { text-align: center; padding: 20px; background: rgba(39,39,42,0.8); border-radius: 16px; border: 1px solid rgba(250,204,21,0.3); }
+  .total-box { text-align: center; padding: 20px; background: rgba(39,39,42,0.8); border-radius: 16px; border: 1px solid var(--yellow); }
   .total-label { color: var(--yellow); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
   .total-num { font-size: 44px; font-weight: 900; color: #fff; font-family: monospace; line-height: 1; }
 
@@ -111,6 +112,39 @@
   .v-norm { color: var(--z300);   font-weight: 600; }
   .v-sheer{ color: #f0abfc;       font-weight: 600; }
 
+  .save-card { border-color: var(--border); }
+  .save-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .save-slot { background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+  .save-slot-title { font-size: 11px; color: var(--z400); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .slot-dmg { margin-top: 8px; font-size: 20px; font-weight: 800; color: #fff; font-family: monospace; line-height: 1.1; }
+  .slot-meta { margin-top: 6px; min-height: 16px; font-size: 11px; color: var(--z500); }
+  .slot-actions-row { display: flex; gap: 8px; margin-top: 10px; }
+  .slot-btn {
+    flex: 1; border-radius: 8px; padding: 8px 10px; cursor: pointer;
+    border: 1px solid var(--border); background: rgba(0,0,0,0.35); color: var(--z300);
+    font-size: 12px; font-weight: 700; font-family: inherit;
+  }
+  .slot-btn.ghost { border-color: var(--z800); background: rgba(0,0,0,0.25); color: var(--z400); }
+  .slot-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .compare-box { background: rgba(0,0,0,0.35); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+  .compare-title { font-size: 11px; color: var(--z400); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .compare-value { margin-top: 6px; font-size: 18px; font-weight: 800; font-family: monospace; color: var(--z300); }
+  .compare-value.up { color: #4ade80; }
+  .compare-value.down { color: var(--rose); }
+  .compare-value.flat { color: var(--z300); }
+  .compare-stats { margin-top: 10px; background: rgba(0,0,0,0.28); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+  .compare-stats-title { font-size: 11px; color: var(--z400); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .compare-stats-list { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .compare-stat-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; font-family: monospace; font-size: 11px; }
+  .compare-stat-name { color: var(--z500); flex: 0 0 96px; }
+  .compare-stat-detail { color: var(--z300); text-align: right; flex: 1; }
+  .compare-stat-detail.up { color: #4ade80; }
+  .compare-stat-detail.down { color: var(--rose); }
+  .compare-stat-empty { font-size: 11px; color: var(--z500); }
+  .slot-footer { margin-top: 12px; }
+  .slot-footer .slot-btn { width: auto; min-width: 120px; }
+  .result-body .save-grid { grid-template-columns: 1fr; }
+
   @media (max-width: 900px) {
     .main-grid { grid-template-columns: 1fr; }
     .field-grid-4 { grid-template-columns: 1fr 1fr; }
@@ -118,6 +152,7 @@
   }
   @media (max-width: 600px) {
     .input-grid { grid-template-columns: 1fr; }
+    .save-grid { grid-template-columns: 1fr; }
     body { padding: 12px; }
   }
 </style>
@@ -189,8 +224,6 @@ if(new Date()-_s>100){document.body.innerHTML='<div style="display:flex;align-it
         </div>
 
       </div>
-
-      
     </div>
 
     <!-- Results -->
@@ -206,13 +239,52 @@ if(new Date()-_s>100){document.body.innerHTML='<div style="display:flex;align-it
           <p class="total-num" id="out-total">0</p>
         </div>
 
+        <div class="card save-card">
+          <div class="card-header"><span>💾</span><span class="card-title">Save & Compare</span></div>
+          <div class="save-grid">
+            <div class="save-slot">
+              <p class="save-slot-title">Slot 1 (Base)</p>
+              <p class="slot-dmg" id="slot1-dmg">—</p>
+              <p class="slot-meta" id="slot1-meta">ยังไม่บันทึก</p>
+              <div class="slot-actions-row">
+                <button type="button" class="slot-btn" id="save-slot1">Save</button>
+                <button type="button" class="slot-btn ghost" id="load-slot1">Load</button>
+              </div>
+            </div>
+            <div class="save-slot">
+              <p class="save-slot-title">Slot 2 (Compare)</p>
+              <p class="slot-dmg" id="slot2-dmg">—</p>
+              <p class="slot-meta" id="slot2-meta">ยังไม่บันทึก</p>
+              <div class="slot-actions-row">
+                <button type="button" class="slot-btn" id="save-slot2">Save</button>
+                <button type="button" class="slot-btn ghost" id="load-slot2">Load</button>
+              </div>
+            </div>
+          </div>
+          <div class="compare-box">
+            <p class="compare-title">Slot 2 เทียบ Slot 1</p>
+            <p class="compare-value flat" id="slot-compare-value">บันทึกทั้ง 2 สล็อตเพื่อเริ่มเทียบ</p>
+          </div>
+          <div class="compare-stats">
+            <p class="compare-stats-title">Stats ที่เปลี่ยน</p>
+            <div class="compare-stats-list" id="slot-compare-stats-list">
+              <p class="compare-stat-empty">บันทึกทั้ง 2 สล็อตเพื่อดูสเตตัสที่เปลี่ยน</p>
+            </div>
+          </div>
+          <div class="slot-footer">
+            <button type="button" class="slot-btn ghost" id="clear-slots">Clear Save</button>
+          </div>
+        </div>
+
         <div class="log-box">
-          <p class="log-title">Theorycraft Log</p>
-          <div class="log-row"><span class="log-key">DEF แท้จริง</span><span class="v-norm" id="log-def">—</span></div>
-          <div class="log-row"><span class="log-key">ตัวคูณ DEF</span><span class="v-def"  id="log-defmult">—</span></div>
-          <div class="log-row"><span class="log-key">RES แท้จริง</span><span class="v-norm" id="log-res">—</span></div>
-          <div class="log-row"><span class="log-key">ตัวคูณ RES</span><span class="v-res"  id="log-resmult">—</span></div>
-          <div class="log-row"><span class="log-key">Combat DMG Mult</span><span class="v-dmg"  id="log-dmg">—</span></div>
+          <p class="log-title">Log 😎😱🥳</p>
+          <div class="log-row"><span class="log-key">DEF ปัจจุบัน</span><span class="v-norm" id="log-def">—</span></div>
+          <div style="display:none" aria-hidden="true">
+            <span id="log-defmult"></span>
+            <span id="log-res"></span>
+            <span id="log-resmult"></span>
+            <span id="log-dmg"></span>
+          </div>
         </div>
 
       </div>
@@ -238,6 +310,309 @@ var e$msxhea=atob(qrboqjby);
 eval(e$msxhea);
 })();</script>
 <script>
+(function () {
+  const INPUT_IDS = [
+    "attackerLevel",
+    "atk",
+    "skillMv",
+    "critRate",
+    "critDmg",
+    "dmgBonus",
+    "enemyDef",
+    "penFlat",
+    "penRatio",
+    "stunMultiplier",
+    "baseRes",
+    "resIgnore",
+    "defShred",
+    "dmgTakenInc"
+  ];
+  const STORAGE_KEY = "zzz_cal_slots_v1";
+  const STAT_CONFIG = [
+    { id: "attackerLevel", label: "Level" },
+    { id: "atk", label: "ATK รวม" },
+    { id: "skillMv", label: "Skill Multiplier" },
+    { id: "critRate", label: "CRIT Rate" },
+    { id: "critDmg", label: "CRIT DMG" },
+    { id: "dmgBonus", label: "Combat DMG%" },
+    { id: "enemyDef", label: "Base DEF" },
+    { id: "penFlat", label: "Flat PEN" },
+    { id: "penRatio", label: "PEN Ratio" },
+    { id: "stunMultiplier", label: "Stun Mult." },
+    { id: "baseRes", label: "Base RES" },
+    { id: "resIgnore", label: "RES Ignore" },
+    { id: "defShred", label: "DEF Shred" },
+    { id: "dmgTakenInc", label: "รับ DMG เพิ่ม" }
+  ];
+  const PERCENT_STAT_IDS = new Set([
+    "skillMv",
+    "critRate",
+    "critDmg",
+    "dmgBonus",
+    "penRatio",
+    "stunMultiplier",
+    "baseRes",
+    "resIgnore",
+    "defShred",
+    "dmgTakenInc"
+  ]);
+
+  function toNum(value) {
+    const n = parseFloat(value);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  function formatDamage(value) {
+    return Math.round(value).toLocaleString("th-TH");
+  }
+
+  function formatSavedAt(iso) {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "บันทึกแล้ว";
+    return "บันทึก " + d.toLocaleString("th-TH", {
+      hour12: false,
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  }
+
+  function formatStatNumber(value, maxDecimals) {
+    const abs = Math.abs(value);
+    const useDecimals = abs % 1 === 0 ? 0 : maxDecimals;
+    return value.toLocaleString("th-TH", {
+      minimumFractionDigits: useDecimals,
+      maximumFractionDigits: maxDecimals
+    });
+  }
+
+  function formatStatValue(id, value) {
+    const decimals = id === "attackerLevel" ? 0 : 2;
+    const text = formatStatNumber(value, decimals);
+    return PERCENT_STAT_IDS.has(id) ? text + "%" : text;
+  }
+
+  function readValues() {
+    const values = {};
+    INPUT_IDS.forEach(function (id) {
+      const el = document.getElementById(id);
+      values[id] = toNum(el ? el.value : 0);
+    });
+    return values;
+  }
+
+  function applyValues(values) {
+    INPUT_IDS.forEach(function (id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const value = Object.prototype.hasOwnProperty.call(values, id) ? values[id] : 0;
+      el.value = String(value);
+    });
+    const trigger = document.getElementById(INPUT_IDS[0]);
+    if (trigger) {
+      trigger.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+  }
+
+  function readDamageFromOutput() {
+    const outputEl = document.getElementById("out-total");
+    if (!outputEl) return 0;
+    const raw = String(outputEl.textContent || "").replace(/[^0-9.-]/g, "");
+    return toNum(raw);
+  }
+
+  function syncAndReadDamage() {
+    const trigger = document.getElementById(INPUT_IDS[0]);
+    if (trigger) {
+      trigger.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+    return readDamageFromOutput();
+  }
+
+  function safeLoadSlots() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function safeSaveSlots(slots) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(slots));
+    } catch (e) {}
+  }
+
+  let slots = safeLoadSlots();
+
+  function setButtonState(buttonId, enabled) {
+    const el = document.getElementById(buttonId);
+    if (!el) return;
+    el.disabled = !enabled;
+  }
+
+  function renderSlot(slotKey, damageId, metaId, loadButtonId) {
+    const dmgEl = document.getElementById(damageId);
+    const metaEl = document.getElementById(metaId);
+    const slot = slots[slotKey];
+
+    if (!dmgEl || !metaEl) return;
+    if (!slot || !slot.values) {
+      dmgEl.textContent = "—";
+      metaEl.textContent = "ยังไม่บันทึก";
+      setButtonState(loadButtonId, false);
+      return;
+    }
+
+    dmgEl.textContent = formatDamage(toNum(slot.damage));
+    metaEl.textContent = slot.savedAt ? formatSavedAt(slot.savedAt) : "บันทึกแล้ว";
+    setButtonState(loadButtonId, true);
+  }
+
+  function renderCompare() {
+    const compareEl = document.getElementById("slot-compare-value");
+    if (!compareEl) return;
+
+    compareEl.classList.remove("up", "down", "flat");
+
+    const s1 = slots.slot1;
+    const s2 = slots.slot2;
+    if (!s1 || !s2) {
+      compareEl.textContent = "บันทึกทั้ง 2 สล็อตเพื่อเริ่มเทียบ";
+      compareEl.classList.add("flat");
+      return;
+    }
+
+    const base = toNum(s1.damage);
+    const target = toNum(s2.damage);
+    const diff = target - base;
+    const diffAbsText = formatDamage(Math.abs(diff));
+    const diffText = (diff > 0 ? "+" : diff < 0 ? "-" : "") + diffAbsText;
+
+    if (base === 0) {
+      const pctText = target === 0 ? "0.00%" : "N/A (ฐานเป็น 0)";
+      compareEl.textContent = diffText + " | " + pctText;
+      compareEl.classList.add(target >= 0 ? "up" : "down");
+      return;
+    }
+
+    const pct = (diff / base) * 100;
+    const pctAbs = Math.abs(pct).toFixed(2) + "%";
+    const pctText = (pct > 0 ? "+" : pct < 0 ? "-" : "") + pctAbs;
+    compareEl.textContent = diffText + " | " + pctText;
+
+    if (diff > 0) compareEl.classList.add("up");
+    else if (diff < 0) compareEl.classList.add("down");
+    else compareEl.classList.add("flat");
+  }
+
+  function renderCompareStats() {
+    const listEl = document.getElementById("slot-compare-stats-list");
+    if (!listEl) return;
+
+    while (listEl.firstChild) {
+      listEl.removeChild(listEl.firstChild);
+    }
+
+    const s1 = slots.slot1;
+    const s2 = slots.slot2;
+    if (!s1 || !s2 || !s1.values || !s2.values) {
+      const emptyEl = document.createElement("p");
+      emptyEl.className = "compare-stat-empty";
+      emptyEl.textContent = "บันทึกทั้ง 2 สล็อตเพื่อดูสเตตัสที่เปลี่ยน";
+      listEl.appendChild(emptyEl);
+      return;
+    }
+
+    let changedCount = 0;
+    STAT_CONFIG.forEach(function (stat) {
+      const before = toNum(s1.values[stat.id]);
+      const after = toNum(s2.values[stat.id]);
+      const diff = after - before;
+      if (Math.abs(diff) < 1e-9) return;
+
+      const rowEl = document.createElement("div");
+      rowEl.className = "compare-stat-row";
+
+      const nameEl = document.createElement("span");
+      nameEl.className = "compare-stat-name";
+      nameEl.textContent = stat.label;
+
+      const detailEl = document.createElement("span");
+      detailEl.className = "compare-stat-detail " + (diff > 0 ? "up" : "down");
+      detailEl.textContent =
+        formatStatValue(stat.id, before) +
+        " → " +
+        formatStatValue(stat.id, after) +
+        " (" +
+        (diff > 0 ? "+" : "-") +
+        formatStatValue(stat.id, Math.abs(diff)) +
+        ")";
+
+      rowEl.appendChild(nameEl);
+      rowEl.appendChild(detailEl);
+      listEl.appendChild(rowEl);
+      changedCount += 1;
+    });
+
+    if (changedCount === 0) {
+      const emptyEl = document.createElement("p");
+      emptyEl.className = "compare-stat-empty";
+      emptyEl.textContent = "ไม่มีสเตตัสที่เปลี่ยน";
+      listEl.appendChild(emptyEl);
+    }
+  }
+
+  function renderAll() {
+    renderSlot("slot1", "slot1-dmg", "slot1-meta", "load-slot1");
+    renderSlot("slot2", "slot2-dmg", "slot2-meta", "load-slot2");
+    renderCompare();
+    renderCompareStats();
+  }
+
+  function saveSlot(slotKey) {
+    const values = readValues();
+    slots[slotKey] = {
+      values: values,
+      damage: syncAndReadDamage(),
+      savedAt: new Date().toISOString()
+    };
+    safeSaveSlots(slots);
+    renderAll();
+  }
+
+  function loadSlot(slotKey) {
+    const slot = slots[slotKey];
+    if (!slot || !slot.values) return;
+    applyValues(slot.values);
+  }
+
+  function clearSlots() {
+    slots = {};
+    safeSaveSlots(slots);
+    renderAll();
+  }
+
+  function bind(id, fn) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("click", fn);
+  }
+
+  bind("save-slot1", function () { saveSlot("slot1"); });
+  bind("save-slot2", function () { saveSlot("slot2"); });
+  bind("load-slot1", function () { loadSlot("slot1"); });
+  bind("load-slot2", function () { loadSlot("slot2"); });
+  bind("clear-slots", clearSlots);
+
+  renderAll();
+})();
+</script>
+<script>
 document.addEventListener('keydown', function(e) {
   if (e.ctrlKey && (e.code === 'KeyS')) { e.preventDefault(); return false; }
   if (e.ctrlKey && (e.code === 'KeyA')) { e.preventDefault(); return false; }
@@ -245,6 +620,3 @@ document.addEventListener('keydown', function(e) {
 });
 </script></body>
 </html>
-
-
-
